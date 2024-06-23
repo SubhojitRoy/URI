@@ -24,7 +24,7 @@ For Linux:
 --Need to be sudo user
 apt-get install python3-django
 
-
+https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa1ZHZTlMOWdlbHdKM1Zja0JkazE5Q3ZJWDZhUXxBQ3Jtc0tucUo0TWNjOHY1R056OXU2cVcwTEJFa2dkbmZHaHlOMkFlNWlWeThKTHN1S2F6c0xsdHhOaTNGSzVTd1FmeTdLVWVVZ0ZvaHBFeHhTUm03c2hnb2tpSlQxdjBVMGx6djNhUWMxYk1fZzE2WGJka0Etbw&q=https%3A%2F%2Fwww.codewithharry.com%2Fblogpost%2Fdjango-deploy-nginx-gunicorn&v=tnJBalPzeAo
 
 Commands:
 =========
