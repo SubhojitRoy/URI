@@ -1,0 +1,116 @@
+Environment:
+============
+VSCode:
+-------
+install python
+install git
+ext install Notepad++ Keymap
+pip install Django
+pip install paramiko
+pip install netmiko
+
+git config --global user.email "subhojitroy993@gmail.com"
+git config --global user.name "SubhojitRoy"
+
+
+Install Django:
+===============
+For Windows:
+------------
+pip install django
+
+For Linux:
+----------
+--Need to be sudo user
+apt-get install python3-django
+
+
+
+Commands:
+=========
+django-admin startproject first_project		#To start a new project
+python manage.py startapp app1				#To start the app of that project
+python manage.py makemigrations food		#To configure changes made in the app
+python manage.py sqlmigrate food 0001		#To create sql table
+python manage.py migrate					#To see migration error
+python .\manage.py createsuperuser			#To create superuser for django panel
+python manage.py runserver					#To run the server
+
+
+
+Steps:
+======
+1. Need to define the function from apps.py in installed app section of settings.py
+EX:
+===
+'network_automation.apps.NetworkAutomationConfig',
+
+
+2. urls.py of the project is used for indicating which urls.py of the app will be redirected to
+from django.contrib import admin
+from django.urls import path, include
+EX:
+===
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('network_automation.urls')),
+
+]
+
+
+3. urls.py of the app is used for indicating which views.py will be viewed on web
+EX:
+===
+from django.urls import path
+from .import views
+
+urlpatterns = [
+    path('network_automation/', views.home, name='home'),
+]
+
+
+4. Views.py is used for indicating what and how things will apper on web
+EX:
+===
+def home(request):
+    return HttpResponse("<h1>Hello World")
+
+
+5. Model.py used for creating models or databases
+EX:
+===
+class Device(models.Model):
+    ip_address = models.CharField(max_length=255)
+    hostname = models.CharField(max_length=255)
+    username = models.CharField(max_length=255)
+    password = models.CharField(max_length=255)
+    ssh_port = models.IntegerField(max_length=22)
+
+    VENDOR_CHOICES = (
+        ('mikrotik', 'Mikrotik'),
+        ('cisco', 'Cisco')
+    )
+
+    vendor = models.CharField(max_length=255, choices=VENDOR_CHOICES)
+
+    def __str__(self):
+        return "{}. {}".format(self.id, self.ip_address)
+
+6. For retriving database into django admin panel. need to indicate the class from models.py to admin.py
+EX:
+===
+admin.site.register(Device)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
